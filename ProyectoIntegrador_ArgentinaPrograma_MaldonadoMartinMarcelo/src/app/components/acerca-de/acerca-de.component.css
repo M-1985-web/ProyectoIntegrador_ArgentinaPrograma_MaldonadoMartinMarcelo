@@ -13,9 +13,8 @@ div {
     position: absolute;
     width: 13%;
     border-radius: 100%;
-    /*esto le da una breve sombra*/
+    /*esto le da una breve sombra left:1.5%;*/
     box-shadow: 3px 3px 3px grey;
-    left:5.8%;
     top: 460px;
   }
 }
@@ -28,14 +27,16 @@ div {
     /*esto le da una breve sombra*/
     box-shadow: 3px 3px 3px grey;
     left:30%;
-    top: 460px;
+    top: 500px;
   }
   #nombre {
     text-align: center;
     text-transform: uppercase;
+    
   }
   #jr{
     text-align: center;
+    
   }
 }
 
