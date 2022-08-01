@@ -3,6 +3,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Launch MmmApplication",
+      "request": "launch",
+      "mainClass": "com.apportfolio.mmm.MmmApplication",
+      "projectName": "mmm"
+    },
+    {
+      "type": "java",
+      "name": "Launch MartinApplication",
+      "request": "launch",
+      "mainClass": "com.apportfolio.martin.MartinApplication",
+      "projectName": "martin"
+    },
+    {
       "name": "ng serve",
       "type": "pwa-chrome",
       "request": "launch",
