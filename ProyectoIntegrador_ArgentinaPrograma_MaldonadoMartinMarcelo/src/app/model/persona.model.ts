@@ -1,5 +1,6 @@
 export class persona {
-  //con el signo de interrogacion le estamos diciendo que ese dato no es necesario
+  //con el signo de interrogacion le estamos diciendo que ese dato no es necesario,
+  //el id es autogestionado
   id? : number;
   nombre: String;
   apellido: String;
