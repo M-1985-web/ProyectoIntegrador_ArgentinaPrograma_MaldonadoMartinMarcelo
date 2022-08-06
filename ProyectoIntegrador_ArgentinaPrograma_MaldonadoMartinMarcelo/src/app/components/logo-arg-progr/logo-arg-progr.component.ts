@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LogoArgProgrComponent implements OnInit {
 
+  //aca le inyectamos servicio de ruteo
   constructor(private router:Router) { }
 
   ngOnInit(): void {

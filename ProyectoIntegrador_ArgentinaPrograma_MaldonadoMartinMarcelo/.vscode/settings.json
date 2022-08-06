@@ -19,11 +19,14 @@
     "conecta",
     "configurar",
     "consectetur",
+    "contraseña",
     "corchangulo",
+    "correo",
     "cris",
     "deserunt",
     "diciendo",
     "Educación",
+    "electronico",
     "elit",
     "espe",
     "especifico",
@@ -39,6 +42,7 @@
     "Ingresar",
     "inicializamos",
     "interrogacion",
+    "inyectamos",
     "Laboral",
     "llamaria",
     "lugares",
@@ -52,7 +56,9 @@
     "peticiones",
     "placeat",
     "queres",
+    "recuerda",
     "repellendus",
+    "ruteo",
     "servicio",
     "signo",
     "Skkils",
@@ -60,7 +66,8 @@
     "subcribe",
     "suscipit",
     "Trabajo",
-    "traer"
+    "traer",
+    "usuario"
   ],
   "java.configuration.updateBuildConfiguration": "interactive"
 }
