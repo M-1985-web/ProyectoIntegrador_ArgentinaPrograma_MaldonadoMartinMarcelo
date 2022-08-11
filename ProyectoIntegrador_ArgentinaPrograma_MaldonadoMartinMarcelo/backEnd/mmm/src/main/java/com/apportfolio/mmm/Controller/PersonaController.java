@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
-    
-    
+
+
     @GetMapping("/personas/traer")
     public List<Persona> getPersona () {
 	return ipersonaService.getPersona();
@@ -31,14 +31,14 @@ public class PersonaController {
 
     @PostMapping("/personas/crear")
     public String createPersona(@RequestBody Persona persona) {
-	ipersonaService.savePersona(persona);
-	return "La persona fue creada correctamente";
+	    ipersonaService.savePersona(persona);
+	    return "La persona fue creada correctamente";
     }
 
     @DeleteMapping("/personas/borrar/{id}")
     public String deletePersona(@PathVariable Long id) {
-	ipersonaService.deletePersona(id);
-	return "La persona fue eliminada correctamente";
+	    ipersonaService.deletePersona(id);
+	    return "La persona fue eliminada correctamente";
     }
 
     // URL:PUERTO/personas/editar/4/nombre & apellido & img
@@ -47,25 +47,26 @@ public class PersonaController {
                                @RequestParam("nombre") String nuevoNombre,
                                @RequestParam("apellido") String nuevoApellido,
                                @RequestParam("img") String nuevoImg){
-        
+
         //lo primero que hacemos es buscar la persona que queremos eliminar
-	Persona persona = ipersonaService.findPersona(id);
+	    Persona persona = ipersonaService.findPersona(id);
 
         //estos son los nuevos cambios que obtendran las variables
-	persona.setNombre(nuevoNombre);
-	persona.setApellido(nuevoApellido);
-	persona.setImg(nuevoImg);
+	    persona.setNombre(nuevoNombre);
+	    persona.setApellido(nuevoApellido);
+	    persona.setImg(nuevoImg);
 
         //aca guarda los cambios nuevos en el objeto persona
-	ipersonaService.savePersona(persona);
-	return persona;
-    }
-    
-    @GetMapping("/personas/traer/perfil")
-    public Persona findPersona() {
-	return ipersonaService.findPersona((long)3);
+	    ipersonaService.savePersona(persona);
+	    return persona;
     }
 
-    
-    
+    @GetMapping("/personas/traer/perfil")
+    public Persona findPersona() {
+
+      return ipersonaService.findPersona((long)3);
+    }
+
+
+
 }
