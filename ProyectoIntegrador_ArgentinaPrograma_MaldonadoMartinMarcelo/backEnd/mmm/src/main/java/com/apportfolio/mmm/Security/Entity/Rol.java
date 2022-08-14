@@ -1,12 +1,17 @@
 package com.apportfolio.mmm.Security.Entity;
 
 import com.apportfolio.mmm.Security.Enums.RolNombre;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Rol {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
@@ -17,8 +22,7 @@ public class Rol {
 
   //construc
 
-  public Rol() {
-  }
+  public Rol() {}
 
   //no seleccionar id en construc genera problemas
   public Rol(RolNombre rolNombre) {
@@ -26,7 +30,6 @@ public class Rol {
   }
 
   //getters and setters
-
 
   public int getId() {
     return id;
@@ -43,6 +46,4 @@ public class Rol {
   public void setRolNombre(RolNombre rolNombre) {
     this.rolNombre = rolNombre;
   }
-
-
 }

@@ -28,12 +28,9 @@ public class UsuarioPrincipal implements UserDetails {
     this.authorities = authorities;
   }
 
-  public static UsuarioPrincipal buil(Usuario usuario) {
-    List<GrantedAuthority> authorities = usuario.getRoles().stream()
-      .map(rol -> new SimpleGrantedAuthority(rol.getRolNombre().name())).collect(Collectors
-        .toList());
-    return new UsuarioPrincipal(usuario.getNombre(), usuario.getNombreUsuario(), usuario.getEmail()
-      , usuario.getPassword(), authorities);
+  public static UsuarioPrincipal build(Usuario usuario) {
+    List<GrantedAuthority> authorities = usuario.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol.getRolNombre().name())).collect(Collectors.toList());
+    return new UsuarioPrincipal(usuario.getNombre(), usuario.getNombreUsuario(), usuario.getEmail(), usuario.getPassword(), authorities);
   }
 
 
@@ -49,12 +46,12 @@ public class UsuarioPrincipal implements UserDetails {
     return password;
   }
 
-  //como el metodo no existe lo agrego manual y le borro el @Override
+  // como el metodo no existe lo agrego manual y le borro el @Override
   public String getNombre() {
     return nombre;
   }
 
-  //como el metodo no existe lo agrego manual y le borro el @Override
+  // como el metodo no existe lo agrego manual y le borro el @Override
   public String getEmail() {
     return email;
   }
@@ -64,23 +61,28 @@ public class UsuarioPrincipal implements UserDetails {
     return nombreUsuario;
   }
 
+  //esta logueado si o no?
   @Override
   public boolean isAccountNonExpired() {
     return true;
   }
 
+  // la cuenta esta bloqueada
   @Override
   public boolean isAccountNonLocked() {
     return true;
   }
 
+  // la contraseña expiro?
   @Override
   public boolean isCredentialsNonExpired() {
     return true;
   }
 
+  // Esta habilitado?
   @Override
   public boolean isEnabled() {
     return true;
   }
+
 }

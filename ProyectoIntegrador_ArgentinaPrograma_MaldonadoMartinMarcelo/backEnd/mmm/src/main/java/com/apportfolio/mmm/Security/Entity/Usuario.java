@@ -1,8 +1,16 @@
 package com.apportfolio.mmm.Security.Entity;
 
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,15 +29,17 @@ public class Usuario {
   @NotNull
   private String password;
   @ManyToMany(fetch = FetchType.EAGER)
-  @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name ="usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
+  @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
+
   private Set<Rol> roles = new HashSet<>();
 
-  //contructores
+  // contructores
 
-  public Usuario(String nombre, String nombreUsuario, String email, String encode) {
+  
+  public Usuario() {
   }
 
-  public Usuario(String nombre, String nombreUsuario, String email, String password, Set<Rol> roles) {
+  public Usuario(String nombre, String nombreUsuario, String email, String password) {
     this.nombre = nombre;
     this.nombreUsuario = nombreUsuario;
     this.email = email;
@@ -38,7 +48,6 @@ public class Usuario {
   }
 
   // getters and setters
-
 
   public int getId() {
     return id;
@@ -88,7 +97,4 @@ public class Usuario {
     this.roles = roles;
   }
 
-
 }
-
-

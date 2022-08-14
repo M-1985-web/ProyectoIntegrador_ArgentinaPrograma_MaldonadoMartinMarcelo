@@ -1,6 +1,5 @@
 package com.apportfolio.mmm.Security.Service;
 
-
 import com.apportfolio.mmm.Security.Entity.Usuario;
 import com.apportfolio.mmm.Security.Entity.UsuarioPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +16,7 @@ public class UserDetailsImpl implements UserDetailsService {
   @Override
   public UserDetails loadUserByUsername(String nombreUsuario) throws UsernameNotFoundException {
     Usuario usuario = usuarioService.getByNombreUsuario(nombreUsuario).get();
-    return UsuarioPrincipal.buil(usuario);
+    return UsuarioPrincipal.build(usuario);
   }
-
 
 }

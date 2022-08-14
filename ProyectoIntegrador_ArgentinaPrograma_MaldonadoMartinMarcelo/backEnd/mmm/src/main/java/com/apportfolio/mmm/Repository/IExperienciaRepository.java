@@ -1,4 +1,4 @@
-/*
+
 package com.apportfolio.mmm.Repository;
 
 import com.apportfolio.mmm.Entity.Experiencia;
@@ -11,4 +11,4 @@ public interface IExperienciaRepository extends JpaRepository <Experiencia, Inte
   public Optional<Experiencia> findByNombreE(String nombreE);
   public boolean existsByNombreE(String nombreE);
 }
-*/
+

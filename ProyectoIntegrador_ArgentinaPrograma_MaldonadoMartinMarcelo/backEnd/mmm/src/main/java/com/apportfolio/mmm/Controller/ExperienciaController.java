@@ -1,9 +1,10 @@
-/*
+
 package com.apportfolio.mmm.Controller;
 
 
 import com.apportfolio.mmm.Dto.DtoExperiencia;
 import com.apportfolio.mmm.Entity.Experiencia;
+import com.apportfolio.mmm.Security.Controller.Mensaje;
 import com.apportfolio.mmm.Service.ImplementExperienciaService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,36 +26,36 @@ public class ExperienciaController {
   @GetMapping("/lista")
   public ResponseEntity<List<Experiencia>> list(){
     List<Experiencia> list = implementExperienciaService.list();
-    return new ResponseEntity(list, HttpStatus.OK);
+    return new ResponseEntity<>(list, HttpStatus.OK);
   }
 
   //trae cualquier dato, una nueva experiencia
   @PostMapping("/create")
   public ResponseEntity<?> create(@RequestBody DtoExperiencia dtoexp){
     if(StringUtils.isBlank(dtoexp.getNombreE()))
-      return new ResponseEntity(new Mensaje("el nombre es obigatorio"), HttpStatus.BAD_REQUEST);
+      return new ResponseEntity<>(new Mensaje("el nombre es obigatorio"), HttpStatus.BAD_REQUEST);
     if(implementExperienciaService.existsByNombreE(dtoexp.getNombreE()))
-      return new ResponseEntity(new Mensaje("la experiencia ya existe"), HttpStatus.BAD_REQUEST);
+      return new ResponseEntity<>(new Mensaje("la experiencia ya existe"), HttpStatus.BAD_REQUEST);
 
     Experiencia experiencia = new Experiencia(dtoexp.getNombreE(), dtoexp.getDescripcionE());
     implementExperienciaService.save(experiencia);
 
-    return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
+    return new ResponseEntity<>(new Mensaje("Experiencia agregada"), HttpStatus.OK);
   }
 
   @PutMapping("/update/{id}")
   public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoExperiencia dtoexp) {
     //validamos si existe tal id
     if(!implementExperienciaService.existsById(id))
-      return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
+      return new ResponseEntity<>(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
 
     //compara si dos experiencias son similares
     if(implementExperienciaService.existsByNombreE(dtoexp.getNombreE()) && implementExperienciaService.getByNombreE(dtoexp.getNombreE()).get().getId() != id)
-      return new ResponseEntity(new Mensaje("ya existe la experiencia"), HttpStatus.BAD_REQUEST);
+      return new ResponseEntity<>(new Mensaje("ya existe la experiencia"), HttpStatus.BAD_REQUEST);
 
     //el campo no puede estar vacio
     if(StringUtils.isBlank(dtoexp.getNombreE()))
-      return new ResponseEntity(new Mensaje("El nombre no puede estar en blanco"), HttpStatus.BAD_REQUEST);
+      return new ResponseEntity<>(new Mensaje("El nombre no puede estar en blanco"), HttpStatus.BAD_REQUEST);
 
     //arriba los filtros
     //si trae el dato correcto
@@ -63,7 +64,7 @@ public class ExperienciaController {
     experiencia.setDescripcionE(dtoexp.getDescripcionE());
 
     implementExperienciaService.save(experiencia);
-    return new ResponseEntity(new Mensaje("Experiencia actualizada correctamente"), HttpStatus.OK);
+    return new ResponseEntity<>(new Mensaje("Experiencia actualizada correctamente"), HttpStatus.OK);
   }
 
 
@@ -71,21 +72,21 @@ public class ExperienciaController {
   public ResponseEntity<?> delete(@PathVariable("id") int id) {
     //validamos si existe id
     if(!implementExperienciaService.existsById(id))
-      return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
+      return new ResponseEntity<>(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
 
     implementExperienciaService.delete(id);
 
-    return new ResponseEntity(new Mensaje("Se elimino correctamente la experiencia"), HttpStatus.OK);
+    return new ResponseEntity<>(new Mensaje("Se elimino correctamente la experiencia"), HttpStatus.OK);
   }
 
 
 
   @GetMapping("/detail/{id}")
-  public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
+  public ResponseEntity<?> getById(@PathVariable("id") int id){
     if(!implementExperienciaService.existsById(id))
-      return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+      return new ResponseEntity<>(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
     Experiencia experiencia = implementExperienciaService.getOne(id).get();
-    return new ResponseEntity(experiencia, HttpStatus.OK);
+    return new ResponseEntity<>(experiencia, HttpStatus.OK);
   }
 
 
@@ -93,4 +94,4 @@ public class ExperienciaController {
 }
 
 
-*/
+
