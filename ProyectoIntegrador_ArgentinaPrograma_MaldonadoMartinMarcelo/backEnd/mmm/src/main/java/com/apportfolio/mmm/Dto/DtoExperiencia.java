@@ -20,7 +20,7 @@ public class DtoExperiencia {
     this.descripcionE = descripcionE;
   }
 
-  //getts y setts
+  //getter y setter
 
 
   public String getNombreE() {

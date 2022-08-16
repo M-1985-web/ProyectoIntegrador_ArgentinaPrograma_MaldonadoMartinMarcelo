@@ -1,28 +1,42 @@
 <div class="row">
   <h1>Experiencia Laboral</h1>
-  <div class="col-lg-1 "></div>
-  <div class="col-lg-11 ">
-    <ul>
-      <li><h1>Trabajo 1</h1> - <h3>(years)</h3></li>
-      <p>Lorem ipsum sit amet consectetur adipisicing elit. Laudantium fugit consequatur fs tempore aspernatur mollitia velit ipsam ipsum autem laboriosam eaque possimus impedit, labore vero asperiores ea. Quae!</p>
-    </ul>
+  <div class="col-lg-2">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      routerLink="/nuevaexp"
+      *ngIf="isLogged"
+    >
+      Crear Nueva Experiencia
+    </button>
+  </div>
 
-    <ul>
-      <li><h1>Trabajo 2</h1> - <h3>(years)</h3></li>
-      <p>Lorem ipsum sit amet consectetur adipisicing
-      elit. Laudantium fugit consequatur fs tempore
-      aspernatur mollitia velit ipsam ipsum autem
-      laboriosam eaque possimus impedit, labore vero
-      asperiores ea. Quae!</p>
-    </ul>
+  <div class="col-lg-1"></div>
+  <div class="col-lg-11">
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let Experiencia of expe">
+          <td>
+            <h5>{{ Experiencia.nombreE }}</h5>
+          </td>
+          <td>{{ Experiencia.descripcionE }}</td>
 
-    <ul>
-      <li><h1>Trabajo 3</h1> - <h3>(years)</h3></li>
-      <p>Lorem ipsum sit amet consectetur adipisicing
-      elit. Laudantium fugit consequatur fs tempore
-      aspernatur mollitia velit ipsam ipsum autem
-      laboriosam eaque possimus impedit, labore vero
-      asperiores ea. Quae!</p>
-    </ul>
+          <td *ngIf="isLogged">
+            <button
+              class="btn btn-primary"
+              routerLink="/editexp/{{ Experiencia.id }}"
+            >
+              <i class="bi bi-pencil"></i>Editar
+            </button>
+          </td>
+
+          <td *ngIf="isLogged">
+            <button class="btn btn-danger" (click)="delete(Experiencia.id)">
+              <i class="bi bi-trash"></i>Borrar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

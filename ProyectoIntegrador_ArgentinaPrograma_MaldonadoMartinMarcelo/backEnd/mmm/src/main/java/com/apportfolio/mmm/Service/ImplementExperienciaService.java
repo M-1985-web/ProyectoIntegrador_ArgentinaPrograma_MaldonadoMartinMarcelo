@@ -31,8 +31,8 @@ public class ImplementExperienciaService {
   }
 
   //guarda dato de tipo experiencia
-  public void save(Experiencia exper) {
-    iExperienciaRepository.save(exper);
+  public void save(Experiencia expe) {
+    iExperienciaRepository.save(expe);
   }
 
   public void delete(int id) {

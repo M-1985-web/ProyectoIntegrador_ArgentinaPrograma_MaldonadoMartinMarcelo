@@ -3,7 +3,7 @@ package com.apportfolio.mmm.Security.Controller;
 
 
 
-//va a controlar los emnsajes
+//va a controlar los mensajes
 
 
 public class Mensaje {
@@ -18,7 +18,7 @@ public class Mensaje {
     this.mensaje = mensaje;
   }
 
-  //getteres && setters
+  //getters && setters
 
   public String getMensaje() {
     return mensaje;

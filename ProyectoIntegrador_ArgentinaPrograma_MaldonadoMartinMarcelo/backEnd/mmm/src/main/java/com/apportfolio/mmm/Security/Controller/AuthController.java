@@ -1,6 +1,6 @@
 package com.apportfolio.mmm.Security.Controller;
 
-//este es paquete que se termina comunicamndo con nuestro front
+//este es paquete que se termina comunicando con nuestro front
 import com.apportfolio.mmm.Security.Dto.JwtDto;
 import com.apportfolio.mmm.Security.Dto.LoginUsuario;
 import com.apportfolio.mmm.Security.Dto.NuevoUsuario;
