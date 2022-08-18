@@ -11,5 +11,6 @@ export class HardandsoftskillsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
+
+
