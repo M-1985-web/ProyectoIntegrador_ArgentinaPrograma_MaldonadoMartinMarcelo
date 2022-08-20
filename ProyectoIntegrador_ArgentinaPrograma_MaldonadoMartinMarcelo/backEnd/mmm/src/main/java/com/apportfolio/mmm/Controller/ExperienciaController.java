@@ -79,6 +79,9 @@ public class ExperienciaController {
     if(StringUtils.isBlank(dtoexp.getNombreE()))
       return new ResponseEntity<>(new Mensaje("El nombre no puede estar en blanco"), HttpStatus.BAD_REQUEST);
 
+    //replicar los 3 if con descripcion
+
+
     //arriba los filtros
     //si trae el dato correcto
     Experiencia experiencia = implementExperienciaService.getOne(id).get();

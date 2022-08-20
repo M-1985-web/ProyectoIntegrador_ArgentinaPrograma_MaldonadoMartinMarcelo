@@ -20,6 +20,8 @@ import { LoginComponent } from './components/login/login.component';
 import { interceptorProvider } from './service/interceptorservice';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
+import { NuevaEducacionComponent } from './components/educacion/nueva-educacion.component';
+import { EditarEducacionComponent } from './components/educacion/editar-educacion.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { EditExperienciaComponent } from './components/experiencia/edit-experien
     HomeComponent,
     LoginComponent,
     NewExperienciaComponent,
-    EditExperienciaComponent
+    EditExperienciaComponent,
+    NuevaEducacionComponent,
+    EditarEducacionComponent
   ],
 
   imports: [
